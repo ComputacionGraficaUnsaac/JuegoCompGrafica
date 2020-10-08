@@ -1,0 +1,11 @@
+Descripción del juego
+Guerra Veterana es un juego de roles que recrea un enfrentamiento armado entre dos bandos (Player VS Pc) con reglas que implementan cierta simulación de posicionamiento, estrategia y organización militar.
+Recursos Usados
+Para la implementación del juego se utilizaron herramientas a nivel de código de pintado de pixeles, las cuales fueron realizadas en laboratorio, tales como rotación, traslación.
+Para la realización de los espacios disponibles para colocar las unidades se utilizó el tamaño de 20x20 pixeles por cada casilla.
+Nociones básicas del juego
+-Se tendrán 2 lados por bando con un número exacto e igual de unidades, en el cual el Player deberá colocar sobre su lado sus respectivas unidades para poder empezar el juego.
+-La PC genera en su lado sus propias unidades y su respectiva distribución 
+-Las unidades disponibles en el juego son un soldado simple (1x1 casillas), soldado armado (1x2 casillas), un mortero (2x3 casillas).
+-Cada bando realiza un ataque por roles esperando la terminación del otro, teniendo el Player la visión del campo rival bloqueada y si logra dar en el objetivo pueden ocurrir los siguientes eventos, el primero que si le da al soldado la unidad se marca y muere automáticamente, y la segunda, que si se da en alguna arma controlada la unidad no muere hasta que se de como objetivo al soldado que la controla.
+-Se dará como ganador al bando que logre eliminar todas las unidades del rival.
