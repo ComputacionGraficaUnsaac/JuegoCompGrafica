@@ -1,2 +1,3 @@
 07 Oct presentaron idea de juego
 14 Oct tienen personajes, tienen canvas, no tienen codigo, 3/4 contribuidores en GitHub. Enrique Flores Aquino        (permiso)
+16 Oct mostraron codigo de su personaje
