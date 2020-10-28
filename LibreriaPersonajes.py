@@ -3,10 +3,10 @@
 # pip install pygame==2.0.0.dev6 (for python 3.8.x)
 # pip install numpy
 # Python 3.8
-
 from utils import *
-from numba import jit
-
+#===================================================================
+#Pintado de personajes
+#===================================================================
 def set_pixel(x, y, r, g, b, size):
 	glColor3f(r, g, b)
 	glPointSize(size)
@@ -17,30 +17,40 @@ def set_pixel(x, y, r, g, b, size):
 	
 	pygame.display.flip()
 	glFlush()
-def PintarUnidad1(x, y, size):
+#def Proyectil(x, y, size):
+#	Puntos_Proyectil = 
+def PintarUnidad1(x, y,caso,repos, size):
 	Puntos_Soldado1 = [
-									 (x-4, y+9),(x-3, y+9),(x-2, y+9),(x-1, y+9),(x+0, y+9),(x+1, y+9),(x+2, y+9),(x+3, y+9),
-			   			  (x-5, y+8),(x-4, y+8),(x-3, y+8),(x-2, y+8),(x-1, y+8),(x+0, y+8),(x+1, y+8),(x+2, y+8),(x+3, y+8),(x+4, y+8),
-			   (x-6, y+7),(x-5, y+7),(x-4, y+7),(x-3, y+7),(x-2, y+7),(x-1, y+7),(x+0, y+7),(x+1, y+7),(x+2, y+7),(x+3, y+7),(x+4, y+7),(x+5, y+7),
-			   (x-6, y+6),(x-5, y+6),(x-4, y+6),(x-3, y+6),(x-2, y+6),(x-1, y+6),(x+0, y+6),(x+1, y+6),(x+2, y+6),(x+3, y+6),(x+4, y+6),(x+5, y+6),
-			   (x-6, y+5),(x-5, y+5),(x-4, y+5),(x-3, y+5),(x-2, y+5),(x-1, y+5),(x+0, y+5),(x+1, y+5),(x+2, y+5),(x+3, y+5),(x+4, y+5),(x+5, y+5),
-			   (x-6, y+4),(x-5, y+4),(x-4, y+4),(x-3, y+4),(x-2, y+4),(x-1, y+4),(x+0, y+4),(x+1, y+4),(x+2, y+4),(x+3, y+4),(x+4, y+4),(x+5, y+4),
-	(x-7, y+3),(x-6, y+3),(x-5, y+3),(x-4, y+3),(x-3, y+3),(x-2, y+3),(x-1, y+3),(x+0, y+3),(x+1, y+3),(x+2, y+3),(x+3, y+3),(x+4, y+3),(x+5, y+3),(x+6, y+3),
-	(x-7, y+2),(x-6, y+2),(x-5, y+2),(x-4, y+2),(x-3, y+2),(x-2, y+2),(x-1, y+2),(x+0, y+2),(x+1, y+2),(x+2, y+2),(x+3, y+2),(x+4, y+2),(x+5, y+2),(x+6, y+2),
-			   (x-6, y+1),(x-5, y+1),(x-4, y+1),(x-3, y+1),(x-2, y+1),(x-1, y+1),(x+0, y+1),(x+1, y+1),(x+2, y+1),(x+3, y+1),(x+4, y+1),(x+5, y+1),
-			   (x-6, y+0),(x-5, y+0),(x-4, y+0),(x-3, y+0),(x-2, y+0),(x-1, y+0),(x+0, y+0),(x+1, y+0),(x+2, y+0),(x+3, y+0),(x+4, y+0),(x+5, y+0),
-	(x-7, y-1),(x-6, y-1),(x-5, y-1),(x-4, y-1),(x-3, y-1),(x-2, y-1),(x-1, y-1),(x+0, y-1),(x+1, y-1),(x+2, y-1),(x+3, y-1),(x+4, y-1),(x+5, y-1),(x+6, y-1),
-	(x-7, y-2),(x-6, y-2),(x-5, y-2),(x-4, y-2),(x-3, y-2),(x-2, y-2),(x-1, y-2),(x+0, y-2),(x+1, y-2),(x+2, y-2),(x+3, y-2),(x+4, y-2),(x+5, y-2),(x+6, y-2),
-			   (x-6, y-3),(x-5, y-3),(x-4, y-3),(x-3, y-3),(x-2, y-3),(x-1, y-3),(x+0, y-3),(x+1, y-3),(x+2, y-3),(x+3, y-3),(x+4, y-3),(x+5, y-3),
-			   			  (x-5, y-4),(x-4, y-4),(x-3, y-4),(x-2, y-4),(x-1, y-4),(x+0, y-4),(x+1, y-4),(x+2, y-4),(x+3, y-4),(x+4, y-4),
-			   			  (x-5, y-5),(x-4, y-5),(x-3, y-5),(x-2, y-5),(x-1, y-5),(x+0, y-5),(x+1, y-5),(x+2, y-5),(x+3, y-5),(x+4, y-5),
-			   			  			 (x-4, y-6),(x-3, y-6),(x-2, y-6),					    (x+1, y-6),(x+2, y-6),(x+3, y-6)
+									 (-4, 9),(-3, 9),(-2, 9),(-1, 9),(0, 9),(1, 9),(2, 9),(3, 9),
+			   			  (-5, 8),(-4, 8),(3, 8),(-2, 8),(-1, 8),(0, 8),(1, 8),(2, 8),(3, 8),(4, 8),
+			   (-6, 7),(-5, 7),(-4, 7),(-3, 7),(-2, 7),(-1, 7),(0, 7),(1, 7),(2, 7),(3, 7),(4, 7),(5, 7),
+			   (-6, 6),(-5, 6),(-4, 6),(-3, 6),(-2, 6),(-1, 6),(0, 6),(1, 6),(2, 6),(3, 6),(4, 6),(5, 6),
+			   (-6, 5),(-5, 5),(-4, 5),(-3, 5),(-2, 5),(-1, 5),(0, 5),(1, 5),(2, 5),(3, 5),(4, 5),(5, 5),
+			   (-6, 4),(-5, 4),(-4, 4),(-3, 4),(-2, 4),(-1, 4),(0, 4),(1, 4),(2, 4),(3, 4),(4, 4),(5, 4),
+	(-7, 3),(-6, 3),(-5, 3),(-4, 3),(-3, 3),(-2, 3),(-1, 3),(0, 3),(1, 3),(2, 3),(3, 3),(4, 3),(5, 3),(6, 3),
+	(-7, 2),(-6, 2),(-5, 2),(-4, 2),(-3, 2),(-2, 2),(-1, 2),(0, 2),(1, 2),(2, 2),(3, 2),(4, 2),(5, 2),(6, 2),
+			   (-6, 1),(-5, 1),(-4, 1),(-3, 1),(-2, 1),(-1, 1),(0, 1),(1, 1),(2, 1),(3, 1),(4, 1),(5, 1),
+			   (-6, 0),(-5, 0),(-4, 0),(-3, 0),(-2, 0),(-1, 0),(0, 0),(1, 0),(2, 0),(3, 0),(4, 0),(5, 0),
+	(-7,-1),(-6, -1),(-5, -1),(-4, -1),(-3, -1),(-2, -1),(-1, -1),(0, -1),(1, -1),(2, -1),(3, -1),(4, -1),(5, -1),(6, -1),
+	(-7,-2),(-6, -2),(-5, -2),(-4, -2),(-3, -2),(-2, -2),(-1, -2),(0, -2),(1, -2),(2, -2),(3, -2),(4, -2),(5, -2),(6, -2),
+			   (-6, -3),(-5, -3),(-4, -3),(-3, -3),(-2, -3),(-1, -3),(0, -3),(1, -3),(2, -3),(3, -3),(4, -3),(5, -3),
+			   			  (-5, -4),(-4, -4),(-3, -4),(-2, -4),(-1, -4),(0, -4),(1, -4),(2, -4),(3, -4),(4, -4),
+			   			  (-5, -5),(-4, -5),(-3, -5),(-2, -5),(-1, -5),(0, -5),(1, -5),(2, -5),(3, -5),(4, -5),
+			   			  			 (-4, -6),(-3, -6),(-2, -6),					    (1, -6),(2, -6),(3, -6)
 	]
-	negro = (0.0,0.0,0)
-	verde = (0,0.25,0)
-	crema = (1,0.89,0.75)
-	blanc = (255,255,255)
-	plomo = (139,69,19)
+	if(repos):
+		negro = (107/255,142/255,35/255)
+		verde = (107/255,142/255,35/255)
+		crema = (107/255,142/255,35/255)
+		blanc = (107/255,142/255,35/255)
+		plomo = (107/255,142/255,35/255)
+	else:
+		negro = (0.0,0.0,0)
+		verde = (0,0.25,0)
+		crema = (1,0.89,0.75)
+		blanc = (255,255,255)
+		plomo = (139,69,19)
+
 	Colores_Soldado1 = [
 							negro, 	negro,	negro,	negro,	negro,	negro, 	negro,	negro,
 					negro,	negro,	verde,	verde,	verde,	verde,	verde,	verde,	negro,	negro,
@@ -60,18 +70,40 @@ def PintarUnidad1(x, y, size):
 							negro,	negro,	negro,					negro,	negro,	negro,
 
 	]
-
-	for i in range(184):
-		x = Puntos_Soldado1[i][0]*size
-		y = Puntos_Soldado1[i][1]*size
-		R = Colores_Soldado1[i][0]
-		G = Colores_Soldado1[i][1]
-		B = Colores_Soldado1[i][2]
-		set_pixel(x,y,R,G,B,size)
+	if(caso==0):	
+		for i in range(184):
+			xf = (x+Puntos_Soldado1[i][0])*size
+			yf = (y+Puntos_Soldado1[i][1])*size
+			R = Colores_Soldado1[i][0]
+			G = Colores_Soldado1[i][1]
+			B = Colores_Soldado1[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	elif(caso==1):
+		for i in range(184):
+			xf = (x-Puntos_Soldado1[i][0]+3)*size
+			yf = (y-Puntos_Soldado1[i][1]+3)*size
+			R = Colores_Soldado1[i][0]
+			G = Colores_Soldado1[i][1]
+			B = Colores_Soldado1[i][2]
+			set_pixel(xf,yf,R,G,B,size)			
+	elif(caso==2):
+		for i in range(184):
+			yf = (y+Puntos_Soldado1[i][0]+1)*size
+			xf = (x+Puntos_Soldado1[i][1]+1)*size
+			R = Colores_Soldado1[i][0]
+			G = Colores_Soldado1[i][1]
+			B = Colores_Soldado1[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	elif(caso==3):
+		for i in range(184):
+			yf = (y-Puntos_Soldado1[i][0])*size
+			xf = (x-Puntos_Soldado1[i][1])*size
+			R = Colores_Soldado1[i][0]
+			G = Colores_Soldado1[i][1]
+			B = Colores_Soldado1[i][2]
+			set_pixel(xf,yf,R,G,B,size)
 	return
-
-
-def PintarUnidad2(x, y, size):
+def PintarUnidad2(x, y,caso,repos, size):
 	Puntos_Soldado2 = [
 									 (x-4, y+9),(x-3, y+9),(x-2, y+9),(x-1, y+9),(x+0, y+9),(x+1, y+9),(x+2, y+9),(x+3, y+9),
 			   			  (x-5, y+8),(x-4, y+8),(x-3, y+8),(x-2, y+8),(x-1, y+8),(x+0, y+8),(x+1, y+8),(x+2, y+8),(x+3, y+8),(x+4, y+8),
@@ -90,16 +122,28 @@ def PintarUnidad2(x, y, size):
 			   			  (x-5, y-5),(x-4, y-5),(x-3, y-5),(x-2, y-5),(x-1, y-5),(x+0, y-5),(x+1, y-5),(x+2, y-5),(x+3, y-5),(x+4, y-5),																			   (x+12, y-5),(x+13, y-5),(x+14, y-5),(x+15, y-5),(x+16, y-5),(x+17, y-5),(x+18, y-5),(x+19, y-5),(x+20, y-5),(x+21, y-5),(x+22, y-5),(x+23, y-5),(x+24, y-5),
 			   			  			 (x-4, y-6),(x-3, y-6),(x-2, y-6),					    (x+1, y-6),(x+2, y-6),(x+3, y-6),																						   (x+12, y-6),(x+13, y-6),(x+14, y-6),(x+15, y-6),(x+16, y-6),(x+17, y-6),(x+18, y-6),(x+19, y-6),(x+20, y-6),(x+21, y-6),(x+22, y-6),(x+23, y-6),
 	]
-	negro = (0.0,0.0,0)
-	verde = (0,0.25,0)
-	crema = (1,0.89,0.75)
-	blanc = (255,255,255)
-	plomo = (139,69,19)
-	plomo = (0.75,0.75,0.75)
-	maro2 = (139/255, 69/255,19/255)
-	plom2 = (0.41,0.41,0.41)
-	dorad = (218/255,165/255,32/255)
-	arena = ( 79/255, 64/255,18/255)
+	if(repos):
+		negro = (107/255,142/255,35/255)
+		verde = (107/255,142/255,35/255)
+		crema = (107/255,142/255,35/255)
+		blanc = (107/255,142/255,35/255)
+		plomo = (107/255,142/255,35/255)
+		plomo = (107/255,142/255,35/255)
+		maro2 = (107/255,142/255,35/255)
+		plom2 = (107/255,142/255,35/255)
+		dorad = (107/255,142/255,35/255)
+		arena = (107/255,142/255,35/255)
+	else:
+		negro = (0.0,0.0,0)
+		verde = (0,0.25,0)
+		crema = (1,0.89,0.75)
+		blanc = (255,255,255)
+		plomo = (139,69,19)
+		plomo = (0.75,0.75,0.75)
+		maro2 = (139/255, 69/255,19/255)
+		plom2 = (0.41,0.41,0.41)
+		dorad = (218/255,165/255,32/255)
+		arena = ( 79/255, 64/255,18/255)
 	Colores_Soldado2 = [
 							negro, 	negro,	negro,	negro,	negro,	negro, 	negro,	negro,
 					negro,	negro,	verde,	verde,	verde,	verde,	verde,	verde,	negro,	negro,
@@ -120,18 +164,42 @@ def PintarUnidad2(x, y, size):
 
 	]
 
-	for i in range(292):
-		x = Puntos_Soldado2[i][0]*size
-		y = Puntos_Soldado2[i][1]*size
-		R = Colores_Soldado2[i][0]
-		G = Colores_Soldado2[i][1]
-		B = Colores_Soldado2[i][2]
-		set_pixel(x,y,R,G,B,size)
 
+
+	if(caso==0):	
+		for i in range(292):
+			xf = (Puntos_Soldado2[i][0])*size
+			yf = (Puntos_Soldado2[i][1])*size
+			R = Colores_Soldado2[i][0]
+			G = Colores_Soldado2[i][1]
+			B = Colores_Soldado2[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	elif(caso==1):
+		for i in range(292):
+			xf = (x-(Puntos_Soldado2[i][0]-x))*size
+			yf = (y-(Puntos_Soldado2[i][1]-y))*size
+			R = Colores_Soldado2[i][0]
+			G = Colores_Soldado2[i][1]
+			B = Colores_Soldado2[i][2]
+			set_pixel(xf,yf,R,G,B,size)			
+	elif(caso==2):
+		for i in range(292):
+			yf = (y+(Puntos_Soldado2[i][0]-x))*size
+			xf = (x+(Puntos_Soldado2[i][1]-y))*size
+			R = Colores_Soldado2[i][0]
+			G = Colores_Soldado2[i][1]
+			B = Colores_Soldado2[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	elif(caso==3):
+		for i in range(292):
+			yf = (y-(Puntos_Soldado2[i][0]-x))*size
+			xf = (x-(Puntos_Soldado2[i][1]-y))*size
+			R = Colores_Soldado2[i][0]
+			G = Colores_Soldado2[i][1]
+			B = Colores_Soldado2[i][2]
+			set_pixel(xf,yf,R,G,B,size)
 	return
-
-
-def PintarUnidad3(x, y, size):
+def PintarUnidad3(x, y,caso,repos, size):
 	Puntos_Soldado3 = [
 									 (x-4, y+9),(x-3, y+9),(x-2, y+9),(x-1, y+9),(x+0, y+9),(x+1, y+9),(x+2, y+9),(x+3, y+9),
 			   			  (x-5, y+8),(x-4, y+8),(x-3, y+8),(x-2, y+8),(x-1, y+8),(x+0, y+8),(x+1, y+8),(x+2, y+8),(x+3, y+8),(x+4, y+8),
@@ -150,12 +218,20 @@ def PintarUnidad3(x, y, size):
 			   			  (x-5, y-5),(x-4, y-5),(x-3, y-5),(x-2, y-5),(x-1, y-5),(x+0, y-5),(x+1, y-5),(x+2, y-5),(x+3, y-5),(x+4, y-5),
 			   			  			 (x-4, y-6),(x-3, y-6),(x-2, y-6),					    (x+1, y-6),(x+2, y-6),(x+3, y-6)
 	]
-	negro = (0.0,0.0,0)
-	verde = (0,0.25,0)
-	crema = (1,0.89,0.75)
-	blanc = (255,255,255)
-	plomo = (0.75,0.75,0.75)
-	plom2 = (0.41,0.41,0.41)
+	if(repos):
+		negro = (107/255,142/255,35/255)
+		verde = (107/255,142/255,35/255)
+		crema = (107/255,142/255,35/255)
+		blanc = (107/255,142/255,35/255)
+		plomo = (107/255,142/255,35/255)
+		plom2 = (107/255,142/255,35/255)
+	else:
+		negro = (0.0,0.0,0)
+		verde = (0,0.25,0)
+		crema = (1,0.89,0.75)
+		blanc = (255,255,255)
+		plomo = (0.75,0.75,0.75)
+		plom2 = (0.41,0.41,0.41)
 	Colores_Soldado3 = [
 							negro, 	negro, 	negro, 	negro,	negro, 	negro, 	negro,	negro,
 					negro,	negro,	verde,	verde,	verde,	verde,	verde,	verde,	negro,	negro,
@@ -176,7 +252,7 @@ def PintarUnidad3(x, y, size):
 
 	]
 
-	Mortero = [
+	Puntos_Mortero = [
 																																																																															(x+33,y+27),(x+34,y+27),(x+35,y+27),
 																																																																												(x+32,y+26),(x+33,y+26),(x+34,y+26),(x+35,y+26),(x+36,y+26),
 																																																																									(x+31,y+25),(x+32,y+25),(x+33,y+25),(x+34,y+25),(x+35,y+25),(x+36,y+25),(x+37,y+25),
@@ -212,11 +288,17 @@ def PintarUnidad3(x, y, size):
 																									(x+15, y-5),(x+16, y-5),(x+17, y-5),(x+18, y-5),(x+19, y-5),																																																									(x+39,y- 5),(x+40,y- 5),(x+41,y- 5),(x+42,y- 5),(x+43,y- 5),
 																												(x+16, y-6),(x+17, y-6),(x+18, y-6),																																																															(x+40,y- 6),(x+41,y- 6),(x+42,y- 6),
 	]
-	
-	maron = (205/255,133/255,63/255)
-	maro2 = (139/255, 69/255,19/255)
-	dorad = (218/255,165/255,32/255)
-	canon = ( 47/255, 79/255,79/255)
+	if(repos):
+		maron = (107/255,142/255,35/255)
+		maro2 = (107/255,142/255,35/255)
+		dorad = (107/255,142/255,35/255)
+		canon = (107/255,142/255,35/255)
+	else:
+		maron = (205/255,133/255,63/255)
+		maro2 = (139/255, 69/255,19/255)
+		dorad = (218/255,165/255,32/255)
+		canon = ( 47/255, 79/255,79/255)
+
 	Colores_Mortero = [
 
 																																																					negro,	canon,	canon,
@@ -255,25 +337,133 @@ def PintarUnidad3(x, y, size):
 																			negro,	negro,	negro,																																											negro,	negro,	negro,
 	]					
 
-	for i in range(184):
-		x = Puntos_Soldado3[i][0]*size
-		y = Puntos_Soldado3[i][1]*size
-		R = Colores_Soldado3[i][0]
-		G = Colores_Soldado3[i][1]
-		B = Colores_Soldado3[i][2]
+	if(caso==0):	
+		for i in range(184):
+			xf = (Puntos_Soldado3[i][0])*size
+			yf = (Puntos_Soldado3[i][1])*size
+			R = Colores_Soldado3[i][0]
+			G = Colores_Soldado3[i][1]
+			B = Colores_Soldado3[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	elif(caso==1):
+		for i in range(184):
+			xf = (x-(Puntos_Soldado3[i][0]-x))*size
+			yf = (y-(Puntos_Soldado3[i][1]-y))*size
+			R = Colores_Soldado3[i][0]
+			G = Colores_Soldado3[i][1]
+			B = Colores_Soldado3[i][2]
+			set_pixel(xf,yf,R,G,B,size)			
+	elif(caso==2):
+		for i in range(184):
+			yf = (y+(Puntos_Soldado3[i][0]-x))*size
+			xf = (x+(Puntos_Soldado3[i][1]-y))*size
+			R = Colores_Soldado3[i][0]
+			G = Colores_Soldado3[i][1]
+			B = Colores_Soldado3[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	elif(caso==3):
+		for i in range(184):
+			yf = (y-(Puntos_Soldado3[i][0]-x))*size
+			xf = (x-(Puntos_Soldado3[i][1]-y))*size
+			R = Colores_Soldado3[i][0]
+			G = Colores_Soldado3[i][1]
+			B = Colores_Soldado3[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	#==============================
+	if(caso==0):	
+		for i in range(685):
+			xf = (Puntos_Mortero[i][0])*size
+			yf = (Puntos_Mortero[i][1])*size
+			R = Colores_Mortero[i][0]
+			G = Colores_Mortero[i][1]
+			B = Colores_Mortero[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	elif(caso==1):
+		for i in range(685):
+			xf = (x-(Puntos_Mortero[i][0]-x))*size
+			yf = (y-(Puntos_Mortero[i][1]-y))*size
+			R = Colores_Mortero[i][0]
+			G = Colores_Mortero[i][1]
+			B = Colores_Mortero[i][2]
+			set_pixel(xf,yf,R,G,B,size)			
+	elif(caso==2):
+		for i in range(685):
+			yf = (y+(Puntos_Mortero[i][0]-x))*size
+			xf = (x+(Puntos_Mortero[i][1]-y))*size
+			R = Colores_Mortero[i][0]
+			G = Colores_Mortero[i][1]
+			B = Colores_Mortero[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	elif(caso==3):
+		for i in range(685):
+			yf = (y-(Puntos_Mortero[i][0]-x))*size
+			xf = (x-(Puntos_Mortero[i][1]-y))*size
+			R = Colores_Mortero[i][0]
+			G = Colores_Mortero[i][1]
+			B = Colores_Mortero[i][2]
+			set_pixel(xf,yf,R,G,B,size)
+	return
+#===================================================================
+#Pintado del mapa
+#===================================================================
+def PintarMapa(x, y, size):
+	Puntos_Mapa = [
+	(x-4,y+6),(x-3,y+6),(x-2,y+6),(x-1,y+6),(x,y+6),(x+1,y+6),(x+2,y+6),(x+3,y+6),(x+4,y+6),
+	(x-4,y+5),(x-3,y+5),(x-2,y+5),(x-1,y+5),(x,y+5),(x+1,y+5),(x+2,y+5),(x+3,y+5),(x+4,y+5),
+	(x-4,y+4),(x-3,y+4),(x-2,y+4),(x-1,y+4),(x,y+4),(x+1,y+4),(x+2,y+4),(x+3,y+4),(x+4,y+4),
+	(x-4,y+3),(x-3,y+3),(x-2,y+3),(x-1,y+3),(x,y+3),(x+1,y+3),(x+2,y+3),(x+3,y+3),(x+4,y+3),
+	(x-4,y+2),(x-3,y+2),(x-2,y+2),(x-1,y+2),(x,y+2),(x+1,y+2),(x+2,y+2),(x+3,y+2),(x+4,y+2),
+	]
+	verde = (107/255,142/255,35/255)
+	Colores_Fondo = [
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	]
+
+	for i in range(45):
+		x = Puntos_Mapa[i][0]*size
+		y = Puntos_Mapa[i][1]*size
+		R = Colores_Fondo[i][0]
+		G = Colores_Fondo[i][1]
+		B = Colores_Fondo[i][2]
 		set_pixel(x,y,R,G,B,size)
-	for i in range(685):
-		x = Mortero[i][0]*size
-		y = Mortero[i][1]*size
-		R = Colores_Mortero[i][0]
-		G = Colores_Mortero[i][1]
-		B = Colores_Mortero[i][2]
+	return
+def PintarMapa2(x, y, size):
+	Puntos_Mapa = [
+	(x-4,y-6),(x-3,y-6),(x-2,y-6),(x-1,y-6),(x,y-6),(x+1,y-6),(x+2,y-6),(x+3,y-6),(x+4,y-6),
+	(x-4,y-5),(x-3,y-5),(x-2,y-5),(x-1,y-5),(x,y-5),(x+1,y-5),(x+2,y-5),(x+3,y-5),(x+4,y-5),
+	(x-4,y-4),(x-3,y-4),(x-2,y-4),(x-1,y-4),(x,y-4),(x+1,y-4),(x+2,y-4),(x+3,y-4),(x+4,y-4),
+	(x-4,y-3),(x-3,y-3),(x-2,y-3),(x-1,y-3),(x,y-3),(x+1,y-3),(x+2,y-3),(x+3,y-3),(x+4,y-3),
+	(x-4,y-2),(x-3,y-2),(x-2,y-2),(x-1,y-2),(x,y-2),(x+1,y-2),(x+2,y-2),(x+3,y-2),(x+4,y-2),
+	]
+	verde = (107/255,142/255,35/255)
+	Colores_Fondo = [
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,verde,
+	]
+
+	for i in range(45):
+		x = Puntos_Mapa[i][0]*size
+		y = Puntos_Mapa[i][1]*size
+		R = Colores_Fondo[i][0]
+		G = Colores_Fondo[i][1]
+		B = Colores_Fondo[i][2]
 		set_pixel(x,y,R,G,B,size)
 	return
 
 def main():
-	scale = 10
-	width, height = scale * 120, scale * 100
+	scale = 2
+	scalefondo = 40
+	width, height = scale * 300, scale * 300
+	i=0
+	Limites = [(-80,40),(80,120)]
+	TamanioSoldados = [[1, 1],[1,1],[2,1],[2,1],[3,2]]
 
 	pygame.init()
 	pygame.display.set_caption('C.G. I')
@@ -284,22 +474,134 @@ def main():
 	# -------
 	# Point (pixel)
 	# -------
-	x1 = -30
-	y1 = 30
-	x2 = 20
-	y2 =30
-	x3 = -15
-	y3 = -20
-	PintarUnidad1(x1,y1,scale)
-	PintarUnidad2(x2,y2,scale)
-	PintarUnidad3(x3,y3,scale)
-	print("Finish...")
-	glFlush()
-	
-	while True:
-		for event in pygame.event.get():
-			if event.type == QUIT:
-				return None
+	xmapa = 0
+	ymapa = 0
+	x = -80
+	y = 40
+	cursorPosicionamiento = [x,y]
+	# -------
+	# Transformation
+	# -------
+	# ---------------------------------------------------------
+	PintarMapa(xmapa,ymapa,scalefondo)
+	PintarMapa2(xmapa,ymapa,scalefondo)
+	PintarUnidad1(x,y,0,False,scale)
+	for i in range (5):
+		Rotacion=0
+		while True:
+			for event in pygame.event.get():
+				if event.type == QUIT:
+					return
+			if event.type == pygame.KEYDOWN:
+				if event.key == pygame.K_LEFT :
+					x-=20
+					cursorPosicionamiento = [x,y]
+					if cursorPosicionamiento[0]<Limites[0][0]:
+						print("Salio del mapa")
+						x+=20
+					else:
+						if (i<=1):
+							PintarUnidad1(x+20,y,Rotacion,True,scale)
+							PintarUnidad1(x,y,Rotacion,False,scale)
+						elif (i>=2 and i<4):
+							PintarUnidad2(x+20,y,Rotacion,True,scale)
+							PintarUnidad2(x,y,Rotacion,False,scale)
+						elif (i == 4):
+							PintarUnidad3(x+20,y,Rotacion,True,scale)
+							PintarUnidad3(x,y,Rotacion,False,scale)
+						else:
+							print ("gaaa")
+					print("IZQUIERDA")
+				elif event.key == pygame.K_RIGHT:
+					
+					cursorPosicionamiento = [x,y]
+					if cursorPosicionamiento[0]+20*TamanioSoldados[i][0]>Limites[1][0]:
+						print("Salio del mapa")
+						#x-=20
+					else:
+						x+=20
+						if (i<=1):
+							PintarUnidad1(x-20,y,Rotacion,True,scale)
+							PintarUnidad1(x,y,Rotacion,False,scale)
+						elif (i>=2 and i<4):
+							PintarUnidad2(x-20,y,Rotacion,True,scale)
+							PintarUnidad2(x,y,Rotacion,False,scale)
+						elif (i == 4):
+							PintarUnidad3(x-20,y,Rotacion,True,scale)
+							PintarUnidad3(x,y,Rotacion,False,scale)
+						else:
+							print ("gaaa")
+					print("DERECHA")
+				elif event.key == pygame.K_UP :
+					cursorPosicionamiento = [x,y]
+					if cursorPosicionamiento[1]+20*TamanioSoldados[i][1]>Limites[1][1]:
+						print("Salio del mapa")
+					else:
+						y+=20
+						if (i<=1):
+							PintarUnidad1(x,y-20,Rotacion,True,scale)
+							PintarUnidad1(x,y,Rotacion,False,scale)
+						elif (i>=2 and i<4):
+							PintarUnidad2(x,y-20,Rotacion,True,scale)
+							PintarUnidad2(x,y,Rotacion,False,scale)
+						elif (i == 4):
+							PintarUnidad3(x,y-20,Rotacion,True,scale)
+							PintarUnidad3(x,y,Rotacion,False,scale)
+						else:
+							print ("gaaa")
+					print("ARRIBA")
+				elif event.key == pygame.K_DOWN :
+					
+					cursorPosicionamiento = [x,y]
+					if cursorPosicionamiento[1]-20*TamanioSoldados[i][1]<Limites[0][1]:
+						print("Salio del mapa")
+					else:
+						y-=20
+						if (i<=1):
+							PintarUnidad1(x,y+20,Rotacion,True,scale)
+							PintarUnidad1(x,y,Rotacion,False,scale)
+						elif (i>=2 and i<4):
+							PintarUnidad2(x,y+20,Rotacion,True,scale)
+							PintarUnidad2(x,y,Rotacion,False,scale)
+						elif (i == 4):
+							PintarUnidad3(x,y+20,Rotacion,True,scale)
+							PintarUnidad3(x,y,Rotacion,False,scale)
+						else:
+							print ("gaaa")
+					print("ABAJO")
+				elif event.key == pygame.K_r :
+					if (i<=1):#IZQUIERDA
+						PintarUnidad1(x,y,Rotacion,True,scale)
+						Rotacion=(Rotacion+1)%4
+						PintarUnidad1(x,y,Rotacion,False,scale)
+					elif (i>=2 and i<4):#ARRIBA
+						PintarUnidad2(x,y,Rotacion,True,scale)
+						Rotacion=(Rotacion+1)%4
+						PintarUnidad2(x,y,Rotacion,False,scale)
+					elif (i == 4):#ABAJO
+						PintarUnidad3(x,y,Rotacion,True,scale)
+						Rotacion=(Rotacion+1)%4
+						PintarUnidad3(x,y,Rotacion,False,scale)
+					else:
+						print ("gaaa")
+					print("ROTACION")
+				elif event.key == pygame.K_g :
+					x=-80
+					y=40
+					Rotacion=0
+					i+=1
+					event.key = pygame.KEYUP
+					print("FIJADO")
+					if (i<=1):
+						PintarUnidad1(x,y,0,False,scale)
+					elif (i>=2 and i<4):
+						PintarUnidad2(x,y,0,False,scale)
+					elif (i == 4):
+						PintarUnidad3(x,y,0,False,scale)
+					else:
+						print ("gaaa")
+					print (i)
+		glFlush()
 		#pygame.display.flip()
 if __name__ == '__main__':
 	main()
