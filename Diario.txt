@@ -1,3 +1,14 @@
 07 Oct presentaron idea de juego
 14 Oct tienen personajes, tienen canvas, no tienen codigo, 3/4 contribuidores en GitHub. Enrique Flores Aquino        (permiso)
 16 Oct mostraron codigo de su personaje
+
+23 Oct nada
+
+28 Oct
+no es jugabele
+no es publicable aun
+el scope del proyecto les superó
+2 transformaciones
+
+30Oct
+sin estructura de archivos en GitHub (desorden)
