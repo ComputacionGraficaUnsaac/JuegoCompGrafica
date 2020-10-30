@@ -12,3 +12,4 @@ el scope del proyecto les superó
 
 30Oct
 sin estructura de archivos en GitHub (desorden)
+mejorar modularizacion
